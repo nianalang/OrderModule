@@ -28,31 +28,6 @@ public class ResultData<T> implements Serializable{
 	 */
 	private String error;
 
-	/**
-	 * 上传商品的id，查询时使用
-	 */
-	private int uploadId;
-
-	public int getUploadId() {
-		return uploadId;
-	}
-
-	public void setUploadId(int uploadId) {
-		this.uploadId = uploadId;
-	}
-
-	/**
-	 * 正确的数据
-	 * 
-	 * @param success
-	 * @param data
-	 */
-	public ResultData(boolean success, T data, int uploadId) {
-		super();
-		this.success = success;
-		this.data = data;
-		this.uploadId = uploadId;
-	}
 
 	/**
 	 * 正确的数据

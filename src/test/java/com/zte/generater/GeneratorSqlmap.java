@@ -1,4 +1,4 @@
-package com.text.generater;
+package com.zte.generater;
 
 import java.io.File;
 import java.util.ArrayList;
