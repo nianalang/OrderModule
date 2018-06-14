@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zte.mapper.LogiMapper">
+  <resultMap id="BaseResultMap" type="com.zte.po.Logi">
+    <result column="logi_id" jdbcType="INTEGER" property="logiId" />
+    <result column="ship_id" jdbcType="INTEGER" property="shipId" />
+    <result column="sn" jdbcType="VARCHAR" property="sn" />
+    <result column="carriage" jdbcType="DECIMAL" property="carriage" />
+    <result column="sender" jdbcType="VARCHAR" property="sender" />
+    <result column="status" jdbcType="SMALLINT" property="status" />
+    <result column="creatime" jdbcType="TIMESTAMP" property="creatime" />
+    <result column="modifytime" jdbcType="TIMESTAMP" property="modifytime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.zte.po.Logi">
+    insert into logi (logi_id, ship_id, sn, 
+      carriage, sender, status, 
+      creatime, modifytime)
+    values (#{logiId,jdbcType=INTEGER}, #{shipId,jdbcType=INTEGER}, #{sn,jdbcType=VARCHAR}, 
+      #{carriage,jdbcType=DECIMAL}, #{sender,jdbcType=VARCHAR}, #{status,jdbcType=SMALLINT}, 
+      #{creatime,jdbcType=TIMESTAMP}, #{modifytime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zte.po.Logi">
+    insert into logi
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="logiId != null">
+        logi_id,
+      </if>
+      <if test="shipId != null">
+        ship_id,
+      </if>
+      <if test="sn != null">
+        sn,
+      </if>
+      <if test="carriage != null">
+        carriage,
+      </if>
+      <if test="sender != null">
+        sender,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creatime != null">
+        creatime,
+      </if>
+      <if test="modifytime != null">
+        modifytime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="logiId != null">
+        #{logiId,jdbcType=INTEGER},
+      </if>
+      <if test="shipId != null">
+        #{shipId,jdbcType=INTEGER},
+      </if>
+      <if test="sn != null">
+        #{sn,jdbcType=VARCHAR},
+      </if>
+      <if test="carriage != null">
+        #{carriage,jdbcType=DECIMAL},
+      </if>
+      <if test="sender != null">
+        #{sender,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="creatime != null">
+        #{creatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>
