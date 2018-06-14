@@ -2,6 +2,9 @@ package com.zte.po;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
+
+import com.zte.po.brief.BriefGoods;
 
 /**
  * 购物车实体
@@ -48,6 +51,21 @@ public class Cart implements Serializable {
 	 * 修改时间
 	 */
 	private Timestamp modifytime;
+
+	/**
+	 * 关联查询(一对多)
+	 * 
+	 * 商品简述
+	 */
+	private List<BriefGoods> briefGoods;
+
+	public List<BriefGoods> getBriefGoods() {
+		return briefGoods;
+	}
+
+	public void setBriefGoods(List<BriefGoods> briefGoods) {
+		this.briefGoods = briefGoods;
+	}
 
 	public Integer getCart_id() {
 		return cart_id;
