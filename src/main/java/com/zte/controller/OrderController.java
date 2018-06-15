@@ -49,4 +49,15 @@ public class OrderController {
 			return new ResultData<List<Cart>>(false, OrderEnums.QUERYFAIL.getStateInfo());
 		}
 	}
+
+	/**
+	 * 将购物车的商品结算，生成订单和日志
+	 */
+	@RequestMapping(value = "/payOffCart", method = RequestMethod.GET)
+	@ResponseBody
+	@ApiOperation(notes = "结算购物车", httpMethod = "GET", value = "结算购物车")
+	public ResultData<String> payOffCart(@ApiParam(value = "用户ID", required = true) @RequestParam("member_id") int member_id){
+		
+		return null;
+	}
 }
