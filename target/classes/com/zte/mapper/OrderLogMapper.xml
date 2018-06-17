@@ -44,4 +44,11 @@
       </if>
     </trim>
   </insert>
+  <!-- insert元素,在此元素内写增加的sql语句， parameterType：参数类型-->
+	<insert id="save" parameterType="orderLog" 
+	useGeneratedKeys="true" keyProperty="log_id" >
+		insert into order_log
+		 (log_id,order_id,status,time)
+		 values(#{log_id},#{order_id},#{status},#{time})
+	</insert>
 </mapper>

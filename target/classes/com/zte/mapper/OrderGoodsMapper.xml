@@ -1,54 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zte.mapper.OrderGoodsMapper">
-  <resultMap id="BaseResultMap" type="com.zte.po.OrderGoods">
-    <result column="id" jdbcType="INTEGER" property="id" />
-    <result column="order_id" jdbcType="INTEGER" property="orderId" />
-    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
-    <result column="goods_num" jdbcType="INTEGER" property="goodsNum" />
-    <result column="price" jdbcType="DECIMAL" property="price" />
-  </resultMap>
-  <insert id="insert" parameterType="com.zte.po.OrderGoods">
-    insert into order_goods (id, order_id, goods_id, 
-      goods_num, price)
-    values (#{id,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER}, #{goodsId,jdbcType=INTEGER}, 
-      #{goodsNum,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL})
-  </insert>
-  <insert id="insertSelective" parameterType="com.zte.po.OrderGoods">
-    insert into order_goods
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="orderId != null">
-        order_id,
-      </if>
-      <if test="goodsId != null">
-        goods_id,
-      </if>
-      <if test="goodsNum != null">
-        goods_num,
-      </if>
-      <if test="price != null">
-        price,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="orderId != null">
-        #{orderId,jdbcType=INTEGER},
-      </if>
-      <if test="goodsId != null">
-        #{goodsId,jdbcType=INTEGER},
-      </if>
-      <if test="goodsNum != null">
-        #{goodsNum,jdbcType=INTEGER},
-      </if>
-      <if test="price != null">
-        #{price,jdbcType=DECIMAL},
-      </if>
-    </trim>
-  </insert>
+	<resultMap id="BaseResultMap" type="com.zte.po.OrderGoods">
+		<result column="id" jdbcType="INTEGER" property="id" />
+		<result column="order_id" jdbcType="INTEGER" property="orderId" />
+		<result column="goods_id" jdbcType="INTEGER" property="goodsId" />
+		<result column="goods_num" jdbcType="INTEGER"
+			property="goodsNum" />
+		<result column="price" jdbcType="DECIMAL" property="price" />
+	</resultMap>
+	<insert id="insert" parameterType="com.zte.po.OrderGoods">
+		insert into order_goods (id, order_id, goods_id,
+		goods_num, price)
+		values (#{id,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER},
+		#{goodsId,jdbcType=INTEGER},
+		#{goodsNum,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL})
+	</insert>
+	<insert id="insertSelective"
+		parameterType="com.zte.po.OrderGoods">
+		insert into order_goods
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="orderId != null">
+				order_id,
+			</if>
+			<if test="goodsId != null">
+				goods_id,
+			</if>
+			<if test="goodsNum != null">
+				goods_num,
+			</if>
+			<if test="price != null">
+				price,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="orderId != null">
+				#{orderId,jdbcType=INTEGER},
+			</if>
+			<if test="goodsId != null">
+				#{goodsId,jdbcType=INTEGER},
+			</if>
+			<if test="goodsNum != null">
+				#{goodsNum,jdbcType=INTEGER},
+			</if>
+			<if test="price != null">
+				#{price,jdbcType=DECIMAL},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- insert元素,在此元素内写增加的sql语句， parameterType：参数类型 -->
+	<insert id="save"
+		parameterType="orderGoods"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into order_goods
+		(id,order_id,goods_id,goods_num,price)
+		values(#{id},#{order_id},#{goods_id},#{goods_num},#{price})
+	</insert>
 </mapper>

@@ -1,93 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zte.mapper.OrderMapper">
-  <resultMap id="BaseResultMap" type="com.zte.po.Order">
-    <result column="order_id" jdbcType="INTEGER" property="orderId" />
-    <result column="sn" jdbcType="VARCHAR" property="sn" />
-    <result column="member_id" jdbcType="INTEGER" property="memberId" />
-    <result column="status" jdbcType="SMALLINT" property="status" />
-    <result column="payment_id" jdbcType="INTEGER" property="paymentId" />
-    <result column="logi_id" jdbcType="INTEGER" property="logiId" />
-    <result column="total_amount" jdbcType="DECIMAL" property="totalAmount" />
-    <result column="address_id" jdbcType="CHAR" property="addressId" />
-    <result column="creatime" jdbcType="TIMESTAMP" property="creatime" />
-    <result column="modifytime" jdbcType="TIMESTAMP" property="modifytime" />
-  </resultMap>
-  <insert id="insert" parameterType="com.zte.po.Order">
-    insert into order (order_id, sn, member_id, 
-      status, payment_id, logi_id, 
-      total_amount, address_id, creatime, 
-      modifytime)
-    values (#{orderId,jdbcType=INTEGER}, #{sn,jdbcType=VARCHAR}, #{memberId,jdbcType=INTEGER}, 
-      #{status,jdbcType=SMALLINT}, #{paymentId,jdbcType=INTEGER}, #{logiId,jdbcType=INTEGER}, 
-      #{totalAmount,jdbcType=DECIMAL}, #{addressId,jdbcType=CHAR}, #{creatime,jdbcType=TIMESTAMP}, 
-      #{modifytime,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="com.zte.po.Order">
-    insert into order
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="orderId != null">
-        order_id,
-      </if>
-      <if test="sn != null">
-        sn,
-      </if>
-      <if test="memberId != null">
-        member_id,
-      </if>
-      <if test="status != null">
-        status,
-      </if>
-      <if test="paymentId != null">
-        payment_id,
-      </if>
-      <if test="logiId != null">
-        logi_id,
-      </if>
-      <if test="totalAmount != null">
-        total_amount,
-      </if>
-      <if test="addressId != null">
-        address_id,
-      </if>
-      <if test="creatime != null">
-        creatime,
-      </if>
-      <if test="modifytime != null">
-        modifytime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="orderId != null">
-        #{orderId,jdbcType=INTEGER},
-      </if>
-      <if test="sn != null">
-        #{sn,jdbcType=VARCHAR},
-      </if>
-      <if test="memberId != null">
-        #{memberId,jdbcType=INTEGER},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=SMALLINT},
-      </if>
-      <if test="paymentId != null">
-        #{paymentId,jdbcType=INTEGER},
-      </if>
-      <if test="logiId != null">
-        #{logiId,jdbcType=INTEGER},
-      </if>
-      <if test="totalAmount != null">
-        #{totalAmount,jdbcType=DECIMAL},
-      </if>
-      <if test="addressId != null">
-        #{addressId,jdbcType=CHAR},
-      </if>
-      <if test="creatime != null">
-        #{creatime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="modifytime != null">
-        #{modifytime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
+	<resultMap id="BaseResultMap" type="com.zte.po.Order">
+		<result column="order_id" jdbcType="INTEGER" property="orderId" />
+		<result column="sn" jdbcType="VARCHAR" property="sn" />
+		<result column="member_id" jdbcType="INTEGER"
+			property="memberId" />
+		<result column="status" jdbcType="SMALLINT" property="status" />
+		<result column="payment_id" jdbcType="INTEGER"
+			property="paymentId" />
+		<result column="logi_id" jdbcType="INTEGER" property="logiId" />
+		<result column="total_amount" jdbcType="DECIMAL"
+			property="totalAmount" />
+		<result column="address_id" jdbcType="CHAR"
+			property="addressId" />
+		<result column="creatime" jdbcType="TIMESTAMP"
+			property="creatime" />
+		<result column="modifytime" jdbcType="TIMESTAMP"
+			property="modifytime" />
+	</resultMap>
+	<insert id="insert" parameterType="com.zte.po.Order">
+		insert into order (order_id, sn, member_id,
+		status, payment_id, logi_id,
+		total_amount, address_id, creatime,
+		modifytime)
+		values (#{orderId,jdbcType=INTEGER}, #{sn,jdbcType=VARCHAR},
+		#{memberId,jdbcType=INTEGER},
+		#{status,jdbcType=SMALLINT}, #{paymentId,jdbcType=INTEGER}, #{logiId,jdbcType=INTEGER},
+		#{totalAmount,jdbcType=DECIMAL}, #{addressId,jdbcType=CHAR},
+		#{creatime,jdbcType=TIMESTAMP},
+		#{modifytime,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="insertSelective" parameterType="com.zte.po.Order">
+		insert into order
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="orderId != null">
+				order_id,
+			</if>
+			<if test="sn != null">
+				sn,
+			</if>
+			<if test="memberId != null">
+				member_id,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="paymentId != null">
+				payment_id,
+			</if>
+			<if test="logiId != null">
+				logi_id,
+			</if>
+			<if test="totalAmount != null">
+				total_amount,
+			</if>
+			<if test="addressId != null">
+				address_id,
+			</if>
+			<if test="creatime != null">
+				creatime,
+			</if>
+			<if test="modifytime != null">
+				modifytime,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="orderId != null">
+				#{orderId,jdbcType=INTEGER},
+			</if>
+			<if test="sn != null">
+				#{sn,jdbcType=VARCHAR},
+			</if>
+			<if test="memberId != null">
+				#{memberId,jdbcType=INTEGER},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=SMALLINT},
+			</if>
+			<if test="paymentId != null">
+				#{paymentId,jdbcType=INTEGER},
+			</if>
+			<if test="logiId != null">
+				#{logiId,jdbcType=INTEGER},
+			</if>
+			<if test="totalAmount != null">
+				#{totalAmount,jdbcType=DECIMAL},
+			</if>
+			<if test="addressId != null">
+				#{addressId,jdbcType=CHAR},
+			</if>
+			<if test="creatime != null">
+				#{creatime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifytime != null">
+				#{modifytime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- insert元素,在此元素内写增加的sql语句， parameterType：参数类型 -->
+	<insert id="save" parameterType="order" useGeneratedKeys="true"
+		keyProperty="order_id">
+		INSERT INTO
+		`order`
+		(sn,member_id,status,payment_id,logi_id,
+		total_amount,address_id,creatime,modifytime)
+		values(#{sn},#{member_id},#{status},
+		#{payment_id},#{logi_id},#{total_amount},#{address_id},
+		#{creatime},#{modifytime})
+	</insert>
+
+	<!-- 动态更新 -->
+	<update id="dynamicUpdate" parameterType="order">
+		update `order`
+		<set>
+			<if test="status!=null">
+				status=#{status},
+			</if>
+			<if test="payment_id!=null">
+				payment_id=#{payment_id},
+			</if>
+			<if test="logi_id!=null">
+				logi_id=#{logi_id},
+			</if>
+			<if test="total_amount!=null">
+				total_amount=#{total_amount}
+			</if>
+			<if test="address_id!=null">
+				address_id=#{address_id}
+			</if>
+			<if test="creatime!=null">
+				creatime=#{creatime}
+			</if>
+			<if test="modifytime!=null">
+				modifytime=#{modifytime}
+			</if>
+		</set>
+		where order_id=#{order_id}
+	</update>
+	<select id="findById" parameterType="int" resultType="order">
+		select *
+		from `order` where order_id=#{order_id}
+	</select>
 </mapper>

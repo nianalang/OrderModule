@@ -18,4 +18,6 @@ public interface CartMapper {
      * 通过会员id查询订单
      */
     List<Cart> selectByMemberId(int member_id);
+    
+    int deleteById (int member_id);
 }

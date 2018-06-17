@@ -46,12 +46,12 @@ public class ResultData<T> implements Serializable{
 	 * 
 	 * @param success
 	 * @param error
-	 */
+	 *//*
 	public ResultData(boolean success, String error) {
 		super();
 		this.success = success;
 		this.error = error;
-	}
+	}*/
 
 	public boolean isSuccess() {
 		return success;

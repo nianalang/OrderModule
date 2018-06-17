@@ -74,23 +74,11 @@ CREATE TABLE `order`
 	PRIMARY KEY (order_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
---
--- 转存表中的数据 
---
-
-INSERT INTO 
-`order` 
-( `sn`, `member_id`, `status`, `payment_id`, `logi_id`, `total_amount`, `address_id`, `creatime`, `modifytime`) 
-VALUES
-('70dc236b89d940e69a3efe82fd21613a', 1, 2, 2, 2, 139.10, '3', '2016-11-24 00:39:03', '2016-11-24 00:39:03'),
-
-('d98085536e044a209bf489d127043da0', 1, 2, 0, 0, 9.90, '31', '2016-11-24 00:50:24', '2016-11-24 00:50:24');
-
-
 --
 -- 物流实体：
 --
+
+
 CREATE TABLE `logi` 
 (
 	`logi_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -150,16 +138,6 @@ CREATE TABLE `order_goods`
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
---
--- 转存表中的数据 
---
-
-INSERT INTO 
-`order_goods` 
-(`order_id`, `goods_id`, `goods_num`, `price`) 
-VALUES
-(1, 1, 4, 89);
-
 
 --
 --订单日志实体：
@@ -179,14 +157,6 @@ CREATE TABLE `order_log`
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
---
--- 转存表中的数据 
-
-INSERT INTO 
-`order_log` 
-(`order_id`, `status`, `time`) 
-VALUES
-(1, 0, '2016-11-24 00:39:03');
 
 --
 --货运公司实体：

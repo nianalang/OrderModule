@@ -16,12 +16,14 @@
 			property="modifytime" />
 	</resultMap>
 	<insert id="insert" parameterType="com.zte.po.Cart">
-		insert into cart (cart_id, member_id, goods_id,
+		insert into cart (cart_id,
+		member_id, goods_id,
 		goods_num, choose, amount,
 		creatime, modifytime)
 		values (#{cartId,jdbcType=INTEGER}, #{memberId,jdbcType=INTEGER},
 		#{goodsId,jdbcType=INTEGER},
-		#{goodsNum,jdbcType=INTEGER}, #{choose,jdbcType=TINYINT}, #{amount,jdbcType=DECIMAL},
+		#{goodsNum,jdbcType=INTEGER},
+		#{choose,jdbcType=TINYINT}, #{amount,jdbcType=DECIMAL},
 		#{creatime,jdbcType=TIMESTAMP}, #{modifytime,jdbcType=TIMESTAMP})
 	</insert>
 	<insert id="insertSelective" parameterType="com.zte.po.Cart">
@@ -82,7 +84,8 @@
 
 	<select id="selectByMemberId" parameterType="int"
 		resultMap="cartMap">
-		select *from cart c join goods g on c.goods_id=g.goods_id where
+		select *from cart c join goods g on c.goods_id=g.goods_id
+		where
 		c.member_id=#{member_id}
 	</select>
 
@@ -97,7 +100,8 @@
 		<result property="creatime" column="creatime" />
 		<result property="modifytime" column="modifytime" />
 		<!-- "一对多"关系用collection元素 -->
-		<collection property="briefGoods" javaType="java.util.List" ofType="briefGoods">
+		<collection property="briefGoods" javaType="java.util.List"
+			ofType="briefGoods">
 			<id property="goods_id" column="goods_id" />
 			<result property="name" column="name" />
 			<result property="price" column="price" />
@@ -106,4 +110,10 @@
 			<result property="mkt_enable" column="mkt_enable" />
 		</collection>
 	</resultMap>
+
+	<!-- delete元素，在此元素内写删除语句 -->
+	<delete id="deleteById" parameterType="int">
+		delete from cart where
+		cart_id=#{cart_id}
+	</delete>
 </mapper>

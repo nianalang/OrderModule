@@ -6,4 +6,6 @@ public interface OrderGoodsMapper {
     int insert(OrderGoods record);
 
     int insertSelective(OrderGoods record);
+    
+    int save(OrderGoods orderGoods);
 }
